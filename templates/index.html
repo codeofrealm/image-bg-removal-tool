@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Background Remove</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="left">
+      <h2>Input Image</h2>
+      <form id="uploadForm">
+        <label for="imageInput" class="upload-box">
+          <i class="fas fa-upload"></i>
+          Click to Upload Image
+        </label>
+        <input type="file" id="imageInput" name="image" accept="image/*" required hidden />
+        <button type="submit">Remove Background</button>
+      </form>
+      <img id="preview" src="https://via.placeholder.com/150" alt="Preview Image" />
+    </div>
+
+    <div class="right">
+      <h2>Output Image</h2>
+      <div class="loader" id="loader" style="display: none;"></div>
+      <img id="output" src="https://via.placeholder.com/150?text=No+Image" alt="Output Image" />
+      <input type="text" id="filenameInput" placeholder="Enter filename" value="output" />
+      <a id="downloadBtn" class="download-btn" download="output.png">Download</a>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

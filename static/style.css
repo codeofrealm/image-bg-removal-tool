@@ -1,0 +1,127 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at center, #353434, #000000);
+  color: rgb(139, 238, 245);
+  font-family: 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+  transition: background 0.2s ease;
+}
+
+/* Mousemove background light effect */
+body::before {
+  content: "";
+  position: fixed;
+  top: var(--y, 50%);
+  left: var(--x, 50%);
+  width: 400px;
+  height: 400px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent 70%);
+  z-index: -1;
+  transition: top 0.1s ease, left 0.1s ease;
+}
+
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 40px;
+  padding: 40px;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.left, .right {
+  background-color: #111;
+  padding: 20px;
+  border-radius: 12px;
+  width: 300px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+h2 {
+  text-align: center;
+  color: #fff;
+}
+
+.upload-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px dashed #444;
+  padding: 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #aaa;
+  transition: all 0.3s ease;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.upload-box:hover {
+  border-color: #777;
+  color: #fff;
+}
+
+.upload-box i {
+  font-size: 24px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+button, .download-btn {
+  display: block;
+  margin: 15px auto 0;
+  padding: 10px 20px;
+  background-color: #04aa6d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+button:hover, .download-btn:hover {
+  background-color: #028a58;
+}
+
+.loader {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #04aa6d;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin: 20px auto;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+#preview, #output {
+  width: 150px;
+  height: auto;
+  margin: 15px auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+}
+
+input[type="text"] {
+  display: block;
+  width: 90%;
+  margin: 10px auto;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #666;
+  background-color: #222;
+  color: white;
+}
